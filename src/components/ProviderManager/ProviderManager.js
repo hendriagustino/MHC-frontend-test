@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import NavigationBar from './../UI/NavigationBar/NavigationBar';
+
 
 class ProviderManager extends Component {
   
   render(){ 
     return(
       <div>
-        <h1>Hi I'm ProviderManager</h1>
+        <NavigationBar/>
+        <h1>Provider Manager</h1>
       </div>
     );
   }

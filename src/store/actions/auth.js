@@ -7,17 +7,23 @@ export const authStart = () =>{
     };
 };
 
-export const authSuccess = (authData) =>{
+export const authSuccess = (token) =>{
     return{
         type: actionTypes.AUTH_SUCCESS,
-        authData: authData
+        token: token
     };
 };
 
 export const authFail = (error) =>{
     return{
         type: actionTypes.AUTH_FAIL,
-        error: error
+        error: error.message
+    };
+};
+
+export const authLogout = () =>{
+    return{
+        type: actionTypes.AUTH_LOGOUT
     };
 };
 
@@ -32,28 +38,13 @@ export const auth = (username, password) =>{
         
         axios.post('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/user/login', authData)
             .then(response=>{
-                console.log(response);
-                dispatch(authSuccess(response.data));
+                console.log(response.data);
+                console.log(response.data.token);
+                dispatch(authSuccess(response.data.token));
             })
             .catch(err=>{
                 console.log(err);
                 dispatch(authFail(err));
             })
     }
-}
-
-
-
-
- // return Axios({
-        //     method: 'POST',
-        //     url: `${url}/login`,
-        //     header: {
-        //     'Content-Type': 'application/json'
-        //     },
-        //     data: {
-        //     'username': username,
-        //     'password': password
-        //     }
-        // })
-        // .then( res => {
+};

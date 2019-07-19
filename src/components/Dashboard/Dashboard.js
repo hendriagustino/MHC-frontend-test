@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
+import classes from './Dashboard.module.css';
+
+import NavigationBar from './../UI/NavigationBar/NavigationBar';
 
 class Dashboard extends Component {
-  
-  render(){ 
+
+  render(){
+
     return(
-      <div>
-        <h1>Hi I'm Dashboard</h1>
+      <div className={classes.Dashboard}>
+        <NavigationBar/>
+        <h1>Hi I'm Dashboard</h1> 
       </div>
     );
   }
