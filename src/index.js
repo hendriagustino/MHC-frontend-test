@@ -10,11 +10,13 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import authReducer from './store/reducers/auth';
+import personnelManagerReducer from './store/reducers/personnelManager';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    personnelManager: personnelManagerReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(

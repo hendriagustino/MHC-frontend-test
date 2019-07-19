@@ -38,8 +38,8 @@ export const auth = (username, password) =>{
         
         axios.post('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/user/login', authData)
             .then(response=>{
-                console.log(response.data);
-                console.log(response.data.token);
+                // console.log(response.data);
+                // console.log(response.data.token);
                 dispatch(authSuccess(response.data.token));
             })
             .catch(err=>{
