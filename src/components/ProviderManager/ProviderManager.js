@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {MDBDataTable, MDBBtn} from 'mdbreact';
 import classes from './ProviderManager.module.css';
 import * as actions from './../../store/actions/index';
+import Spinner from './../UI/Spinner/Spinner';
 
 import NavigationBar from './../UI/NavigationBar/NavigationBar';
 
@@ -55,12 +56,19 @@ class ProviderManager extends Component {
         <NavigationBar/>
         <h1>Provider Manager</h1>
         <div className="container">
-          <MDBDataTable
-            striped
-            bordered
-            hover
-            data={data}
-          />
+          {
+            this.props.loading ? 
+              <Spinner/>
+            :
+              (
+                <MDBDataTable
+                  striped
+                  bordered
+                  hover
+                  data={data}
+                />
+              )
+          }
         </div>
       </div>
     );
@@ -70,7 +78,8 @@ class ProviderManager extends Component {
 const mapStateToProps = state =>{
   return {
     token: state.auth.token,
-    provider: state.providerManager.provider
+    provider: state.providerManager.provider,
+    loading: state.providerManager.loading
   }
 };
 

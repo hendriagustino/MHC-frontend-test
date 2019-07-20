@@ -6,6 +6,7 @@ import { MDBDataTable, MDBBtn } from 'mdbreact';
 import * as actions from './../../store/actions/index';
 
 import NavigationBar from './../UI/NavigationBar/NavigationBar';
+import Spinner from './../UI/Spinner/Spinner';
 
 class FacilityManager extends Component {
 
@@ -68,12 +69,20 @@ class FacilityManager extends Component {
         <NavigationBar/>
         <h1>Facility Manager</h1>
         <div className="container">
-          <MDBDataTable
-            striped
-            bordered
-            hover
-            data={data}
-          />
+          { 
+            this.props.loading
+            ?
+              <Spinner/>
+            :
+            (
+              <MDBDataTable
+                striped
+                bordered
+                hover
+                data={data}
+              />
+            )
+          }
         </div>
       </div>
     );
@@ -83,7 +92,8 @@ class FacilityManager extends Component {
 const mapStateToProps = state =>{
   return {
     token: state.auth.token,
-    facility: state.facilityManager.facility
+    facility: state.facilityManager.facility,
+    loading: state.facilityManager.loading
   };
 };
 
@@ -93,6 +103,4 @@ const mapDispatchToProps = dispatch =>{
   }
 }
 
-export default connect (mapStateToProps, mapDispatchToProps) (FacilityManager);
-// export default FacilityManager;
-
+export default connect (mapStateToProps, mapDispatchToProps)(FacilityManager);

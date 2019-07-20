@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import { MDBDataTable, MDBBtn } from 'mdbreact';
 import classes from './PersonnelManager.module.css';
 import * as actions from './../../store/actions/index';
+import Spinner from './../UI/Spinner/Spinner';
 
 import NavigationBar from './../UI/NavigationBar/NavigationBar';
 
@@ -63,12 +64,21 @@ class PersonnelManager extends Component {
       <NavigationBar/>
       <h1>Personnel Manager</h1>
       <div className="container">
-        <MDBDataTable
-          striped
-          bordered
-          hover
-          data={data}
-        />
+        
+        {
+          this.props.loading ? 
+            <Spinner/> 
+          : 
+            (
+              <MDBDataTable
+                striped
+                bordered
+                hover
+                data={data}
+              />
+            )
+        }
+        
       </div>
     </div>
   );
@@ -78,7 +88,8 @@ class PersonnelManager extends Component {
 const mapStateToProps = state =>{
   return {
     token: state.auth.token,
-    personnel: state.personnelManager.personnel
+    personnel: state.personnelManager.personnel,
+    loading: state.personnelManager.loading
   }
 };
 
