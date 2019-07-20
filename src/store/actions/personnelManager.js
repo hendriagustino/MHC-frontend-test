@@ -7,13 +7,6 @@ export const getAllPersonnelStart = (token) =>{
     }
 }
 
-export const getAllPersonnelFail = (error) =>{
-    return {
-        type: actionTypes.GET_ALL_PERSONNEL_FAIL,
-        error: error.message
-    };
-};
-
 export const getAllPersonnelSuccess = (personnel) =>{
     return{
         type: actionTypes.GET_ALL_PERSONNEL_SUCCESS,
@@ -21,13 +14,16 @@ export const getAllPersonnelSuccess = (personnel) =>{
     };
 };
 
+export const getAllPersonnelFail = (error) =>{
+    return {
+        type: actionTypes.GET_ALL_PERSONNEL_FAIL,
+        error: error.message
+    };
+};
+
 export const getAllPersonnel = token =>{
     return dispatch => {
         dispatch(getAllPersonnelStart());
-        
-        // const headers = {
-        //     'Authorization': `Bearer ${token}`
-        // };
 
         const headers = {
             Authorization: token
@@ -37,13 +33,10 @@ export const getAllPersonnel = token =>{
                     {headers}
                 )
             .then(response=>{
-                console.log('respondata',response.data.data);
-                console.log('SUKSES!');
                 dispatch(getAllPersonnelSuccess(response.data.data));
             })
             .catch(err=>{
                 console.log(err.response);
-                // jalanin
                 dispatch(getAllPersonnelFail(err));
             })
     }

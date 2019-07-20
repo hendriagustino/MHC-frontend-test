@@ -1,7 +1,8 @@
 import * as actionTypes from './../actions/actionTypes';
 
 const initialState = {
-    token: null,
+    // token: null,
+    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMWQ4YjAwYmYwODM0MTcwZTg4YzdhNiIsImlhdCI6MTU2MjIxNzIyNywiZXhwIjoxNTY0ODA5MjI3fQ.Y1uLnjTEIne_uBVjX69VnNrKm7V4n10E0dh0RfurR1Q',
     loading: false,
     error: null
 };

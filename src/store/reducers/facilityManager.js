@@ -1,0 +1,49 @@
+import * as actionTypes from './../actions/actionTypes';
+
+const initialState = {
+    loading: false,
+    error: null,
+    facility: []
+};
+
+const getAllFacilityStart = (state, action) =>{
+    return{
+        ...state,
+        loading: true
+    };
+};
+
+const getAllFacilitySuccess = (state, action) =>{
+    return{
+        ...state,
+        error: null,
+        loading: false,
+        facility: [...action.facility]
+    };
+};
+
+const getAllFacilityFail = (state, action) =>{
+    return{
+        ...state,
+        loading: false,
+        error: action.error
+    };
+};
+
+const reducer = (state= initialState, action) =>{
+    switch(action.type){
+        case actionTypes.GET_ALL_FACILITY_START:
+            return getAllFacilityStart(state, action);
+        
+        case actionTypes.GET_ALL_FACILITY_SUCCESS:
+            return getAllFacilitySuccess(state, action);
+
+        case actionTypes.GET_ALL_FACILITY_FAIL:
+            return getAllFacilityFail(state, action);
+
+        default:
+            return state;
+    }
+}
+
+export default reducer;

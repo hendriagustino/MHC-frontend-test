@@ -14,9 +14,7 @@ class PersonnelManager extends Component {
   };
 
   render(){
-
-  console.log('ini->',this.props.personnel);
-  
+    
   const data = {
     columns: [
       {label: 'First Name', field: 'firstname'},

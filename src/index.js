@@ -11,12 +11,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import authReducer from './store/reducers/auth';
 import personnelManagerReducer from './store/reducers/personnelManager';
+import facilityManagerReducer from './store/reducers/facilityManager';
+import providerManagerReducer from './store/reducers/providerManager';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    personnelManager: personnelManagerReducer
+    personnelManager: personnelManagerReducer,
+    facilityManager: facilityManagerReducer,
+    providerManager: providerManagerReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(
