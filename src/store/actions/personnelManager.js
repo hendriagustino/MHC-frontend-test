@@ -41,3 +41,50 @@ export const getAllPersonnel = token =>{
             })
     }
 };
+
+export const getPersonnelStart = (token) =>{
+    return{
+        type: actionTypes.GET_PERSONNEL_START
+    };
+};
+
+export const getPersonnelSuccess = (personnel) =>{
+    return{
+        type: actionTypes.GET_PERSONNEL_SUCCESS,
+        personnel: personnel
+    };
+};
+
+export const getPersonnelFail = (error) =>{
+    return {
+        type: actionTypes.GET_PERSONNEL_FAIL,
+        error: error.message
+    };
+};
+
+export const getPersonnelErase = () =>{
+    return {
+        type: actionTypes.GET_PERSONNEL_ERASE
+    };
+};
+
+export const getPersonnel = (token, id) =>{
+    return dispatch => {
+        dispatch(getPersonnelStart());
+
+        const headers = {
+            Authorization: token
+        };
+
+        axios.get('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/personnel/' + id,
+                    {headers}
+                )
+            .then(response=>{
+                dispatch(getPersonnelSuccess(response.data.data));
+            })
+            .catch(err=>{
+                console.log(err.response);
+                dispatch(getPersonnelFail(err));
+            })
+    }
+};

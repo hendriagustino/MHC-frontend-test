@@ -3,7 +3,8 @@ export {
 } from './auth';
 
 export {
-    getAllPersonnel
+    getAllPersonnel,
+    getPersonnel, getPersonnelErase
 } from './personnelManager';
 
 export {

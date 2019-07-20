@@ -15,8 +15,7 @@ class PersonnelManager extends Component {
   };
 
   viewPersonnel = (id) =>{
-    // console.log(this.props.location);
-    this.props.history.push('/personnel/'+id);
+    this.props.history.push('/personnel/'+ id);
   };
 
   render(){
