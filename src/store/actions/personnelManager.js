@@ -7,12 +7,6 @@ export const getAllPersonnelStart = (token) =>{
     }
 }
 
-export const getAllPersonnelSuccess = () =>{
-    return{
-        type: actionTypes.GET_ALL_PERSONNEL_SUCCESS
-    };
-};
-
 export const getAllPersonnelFail = (error) =>{
     return {
         type: actionTypes.GET_ALL_PERSONNEL_FAIL,
@@ -20,20 +14,32 @@ export const getAllPersonnelFail = (error) =>{
     };
 };
 
+export const getAllPersonnelSuccess = (personnel) =>{
+    return{
+        type: actionTypes.GET_ALL_PERSONNEL_SUCCESS,
+        personnel: personnel
+    };
+};
+
 export const getAllPersonnel = token =>{
     return dispatch => {
         dispatch(getAllPersonnelStart());
         
-        console.log('token-->',token);
+        // const headers = {
+        //     'Authorization': `Bearer ${token}`
+        // };
 
-        axios.get('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/personnel', null,
-                    {headers:{ "Authorization":  token}}
+        const headers = {
+            Authorization: token
+        };
+
+        axios.get('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/personnel',
+                    {headers}
                 )
             .then(response=>{
-                console.log(response.data);
+                console.log('respondata',response.data.data);
                 console.log('SUKSES!');
-                //ini dipending dlu. aku mau liat bentuk response.data nya kyk mana dlu
-                // dispatch(getAllPersonnelSuccess(response.data));
+                dispatch(getAllPersonnelSuccess(response.data.data));
             })
             .catch(err=>{
                 console.log(err.response);
