@@ -10,11 +10,15 @@ import NotFound from './components/UI/NotFound/NotFound';
 
 import Auth from './components/Auth/Auth';
 import Dashboard from './components/Dashboard/Dashboard';
+
 import PersonnelManager from './components/PersonnelManager/PersonnelManager';
 import Personnel from './components/PersonnelManager/Personnel/Personnel';
 
 import FacilityManager from './components/FacilityManager/FacilityManager';
+import Facility from './components/FacilityManager/Facility/Facility';
+
 import ProviderManager from './components/ProviderManager/ProviderManager';
+// import Provider from './components/ProviderManager/Provider/Provider';
 
 
 class App extends Component {
@@ -38,7 +42,10 @@ class App extends Component {
       <Switch>
         <Route path="/personnelmanager" component={PersonnelManager}/>
         <Route path="/personnel/:id" component={Personnel}/>
+
         <Route path="/facilitymanager" component={FacilityManager}/>
+        <Route path="/facility/:id" component={Facility}/>
+
         <Route path="/providermanager" component={ProviderManager}/>
         <Route path="/" exact component={Dashboard}/>
         <Route path="*" component={NotFound}/>

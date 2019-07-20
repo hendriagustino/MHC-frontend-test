@@ -13,6 +13,10 @@ class FacilityManager extends Component {
   componentDidMount(){
     this.props.getAllFacility(this.props.token);
   };
+
+  viewFacility = (id) =>{
+    this.props.history.push('/facility/'+id);
+  }
   
   state = {
     facility:
@@ -48,13 +52,13 @@ class FacilityManager extends Component {
                   style={{marginRight: '5px'}}
                   size="sm"
                   color="success"
-                  onClick={()=> this.viewPersonnel(facility.ID)}
+                  onClick={()=> this.viewFacility(facility.ID)}
                   >
                   VIEW
                 </MDBBtn>
 
                 <MDBBtn size="sm" color="danger" 
-                  onClick={()=>this.deletePersonnel(facility.ID)}
+                  onClick={()=>this.deleteFacility(facility.ID)}
                   >
                   DELETE
                 </MDBBtn>

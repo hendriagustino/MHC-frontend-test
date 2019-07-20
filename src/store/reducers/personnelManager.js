@@ -3,8 +3,7 @@ import * as actionTypes from './../actions/actionTypes';
 const initialState = {
     loading: false,
     error: null,
-    personnel: [],
-    // personnel: null
+    personnel: []
 };
 
 const getAllPersonnelStart = (state, action) =>{

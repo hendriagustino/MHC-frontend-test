@@ -30,16 +30,54 @@ const getAllFacilityFail = (state, action) =>{
     };
 };
 
+const getFacilityStart = (state, action) =>{
+    return{
+        ...state,
+        loading: true
+    };
+};
+
+const getFacilitySuccess = (state, action) =>{
+    return{
+        ...state,
+        loading: false,
+        facility: [...action.facility]
+    }
+}
+
+const getFacilityFail = (state, action) =>{
+    return{
+        ...state,
+        loading: false,
+        error: action.error
+    }
+}
+
+const getFacilityErase = (state, action) =>{
+    return{
+        ...state,
+        facility: []
+    }
+}
+
 const reducer = (state= initialState, action) =>{
     switch(action.type){
         case actionTypes.GET_ALL_FACILITY_START:
             return getAllFacilityStart(state, action);
-        
         case actionTypes.GET_ALL_FACILITY_SUCCESS:
             return getAllFacilitySuccess(state, action);
-
         case actionTypes.GET_ALL_FACILITY_FAIL:
             return getAllFacilityFail(state, action);
+
+        case actionTypes.GET_FACILITY_START:
+            return getFacilityStart(state, action);
+        case actionTypes.GET_FACILITY_SUCCESS:
+            return getFacilitySuccess(state, action);
+        case actionTypes.GET_FACILITY_FAIL:
+            return getFacilityFail(state, action);
+            
+        case actionTypes.GET_FACILITY_ERASE:
+            return getFacilityErase(state, action);
 
         default:
             return state;

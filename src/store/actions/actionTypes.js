@@ -6,16 +6,24 @@ export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const GET_PERSONNEL_START =  'GET_PERSONNEL_START';
 export const GET_PERSONNEL_SUCCESS= 'GET_PERSONNEL_SUCCESS';
 export const GET_PERSONNEL_FAIL =   'GET_PERSONNEL_FAIL';
-
 export const GET_PERSONNEL_ERASE =   'GET_PERSONNEL_ERASE';
 
 export const GET_ALL_PERSONNEL_START =  'GET_ALL_PERSONNEL_START';
 export const GET_ALL_PERSONNEL_SUCCESS= 'GET_ALL_PERSONNEL_SUCCESS';
 export const GET_ALL_PERSONNEL_FAIL =   'GET_ALL_PERSONNEL_FAIL';
 
+//////////////////////////////////////////////////////////////////////
+
+export const GET_FACILITY_START =  'GET_FACILITY_START';
+export const GET_FACILITY_SUCCESS= 'GET_FACILITY_SUCCESS';
+export const GET_FACILITY_FAIL =   'GET_FACILITY_FAIL';
+export const GET_FACILITY_ERASE =   'GET_FACILITY_ERASE';
+
 export const GET_ALL_FACILITY_START =   'GET_ALL_FACILITY_START';
 export const GET_ALL_FACILITY_SUCCESS = 'GET_ALL_FACILITY_SUCCESS';
 export const GET_ALL_FACILITY_FAIL =    'GET_ALL_FACILITY_FAIL';
+
+//////////////////////////////////////////////////////////////////////
 
 export const GET_ALL_PROVIDER_START =   'GET_ALL_PROVIDER_START';
 export const GET_ALL_PROVIDER_SUCCESS = 'GET_ALL_PROVIDER_SUCCESS';

@@ -8,7 +8,8 @@ export {
 } from './personnelManager';
 
 export {
-    getAllFacility
+    getAllFacility,
+    getFacility, getFacilityErase
 } from './facilityManager';
 
 export {
