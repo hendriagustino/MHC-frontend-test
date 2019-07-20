@@ -14,6 +14,10 @@ class ProviderManager extends Component {
     this.props.getAllProvider(this.props.token);
   }
 
+  viewProvider = (id) =>{
+    this.props.history.push('/provider/'+ id);
+  }
+
   render(){ 
 
     const data = {
@@ -36,13 +40,13 @@ class ProviderManager extends Component {
                 style={{marginRight: '5px'}}
                 size="sm"
                 color="success"
-                onClick={()=> this.viewPersonnel(provider.ID)}
+                onClick={()=> this.viewProvider(provider.ID)}
                 >
                 VIEW
               </MDBBtn>
 
               <MDBBtn size="sm" color="danger" 
-                onClick={()=>this.deletePersonnel(provider.ID)}
+                onClick={()=>this.deleteProvider(provider.ID)}
                 >
                 DELETE
               </MDBBtn>

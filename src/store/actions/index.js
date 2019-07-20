@@ -13,5 +13,6 @@ export {
 } from './facilityManager';
 
 export {
-    getAllProvider
+    getAllProvider,
+    getProvider, getProviderErase
 } from './providerManager';

@@ -25,6 +25,11 @@ export const GET_ALL_FACILITY_FAIL =    'GET_ALL_FACILITY_FAIL';
 
 //////////////////////////////////////////////////////////////////////
 
+export const GET_PROVIDER_START =  'GET_PROVIDER_START';
+export const GET_PROVIDER_SUCCESS= 'GET_PROVIDER_SUCCESS';
+export const GET_PROVIDER_FAIL =   'GET_PROVIDER_FAIL';
+export const GET_PROVIDER_ERASE =  'GET_PROVIDER_ERASE';
+
 export const GET_ALL_PROVIDER_START =   'GET_ALL_PROVIDER_START';
 export const GET_ALL_PROVIDER_SUCCESS = 'GET_ALL_PROVIDER_SUCCESS';
 export const GET_ALL_PROVIDER_FAIL =    'GET_ALL_PROVIDER_FAIL';
