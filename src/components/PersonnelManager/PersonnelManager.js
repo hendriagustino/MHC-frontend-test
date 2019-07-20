@@ -14,6 +14,11 @@ class PersonnelManager extends Component {
     this.props.getAllPersonnel(this.props.token);
   };
 
+  viewPersonnel = (id) =>{
+    // console.log(this.props.location);
+    this.props.history.push('/personnel/'+id);
+  };
+
   render(){
     
   const data = {
@@ -28,7 +33,7 @@ class PersonnelManager extends Component {
       {label: 'ID', field: 'ID'},
       {label: 'Action', field: 'action'}
     ],
-    rows:this.props.personnel.map(personnel=>{
+    rows: this.props.personnel.map(personnel=>{
       return{
         firstname: personnel.firstName ? personnel.firstName : '',
         lastname: personnel.lastName ? personnel.lastName : '',

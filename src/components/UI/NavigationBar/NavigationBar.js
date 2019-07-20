@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDBContainer, MDBNavbar, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink } from 'mdbreact';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 import * as actions from './../../../store/actions/index';
 
 class NavigationBar extends React.Component {
@@ -15,6 +16,11 @@ class NavigationBar extends React.Component {
       });
   }
 
+  onLogoutButtonClick = () =>{
+    this.props.onLogout();
+    this.props.history.push("/");
+  }
+
   render() {
     const bgPink = {backgroundColor: '#333'}
     const container = {}
@@ -27,7 +33,7 @@ class NavigationBar extends React.Component {
               <MDBCollapse isOpen = { this.state.collapse } navbar>
                 <MDBNavbarNav left>
                   <MDBNavItem>
-                      <MDBNavLink to="/dashboard">Dashboard</MDBNavLink>
+                      <MDBNavLink to="/">Dashboard</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
                       <MDBNavLink to="/personnelmanager">Personnel Manager</MDBNavLink>
@@ -42,7 +48,7 @@ class NavigationBar extends React.Component {
                 
                 <MDBNavbarNav right>
                   <MDBNavItem>
-                      <button onClick={this.props.onLogout} className="btn btn-danger" >Logout</button>
+                      <button onClick={this.onLogoutButtonClick} className="btn btn-danger" >Logout</button>
                   </MDBNavItem>
                 </MDBNavbarNav>
                 
@@ -68,5 +74,5 @@ const mapDispatchToProps = dispatch =>{
   }
 }
 
-export default connect (null, mapDispatchToProps) (NavigationBar);
+export default withRouter(connect (null, mapDispatchToProps) (NavigationBar));
 

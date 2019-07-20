@@ -22,6 +22,7 @@ export const authFail = (error) =>{
 };
 
 export const authLogout = () =>{
+    localStorage.removeItem('token');
     return{
         type: actionTypes.AUTH_LOGOUT
     };
@@ -38,8 +39,7 @@ export const auth = (username, password) =>{
         
         axios.post('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/user/login', authData)
             .then(response=>{
-                // console.log(response.data);
-                // console.log(response.data.token);
+                localStorage.setItem('token',response.data.token);
                 dispatch(authSuccess(response.data.token));
             })
             .catch(err=>{
@@ -48,3 +48,15 @@ export const auth = (username, password) =>{
             })
     }
 };
+
+export const authTokenCheck = () =>{
+    return dispatch =>{
+        const token = localStorage.getItem('token');
+        if (!token){
+            dispatch(authLogout());
+        } else {
+            dispatch(authSuccess(token));
+        }
+    }
+}
+
