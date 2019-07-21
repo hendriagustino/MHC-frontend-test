@@ -88,3 +88,46 @@ export const getFacility = (token, id) =>{
             })
     }
 };
+
+//////////////////////////////////////////////////////////
+
+export const deleteFacilityStart = (token) =>{
+    return{
+        type: actionTypes.DELETE_FACILITY_START
+    };
+};
+
+export const deleteFacilitySuccess = () =>{
+    return {
+        type: actionTypes.DELETE_FACILITY_SUCCESS
+    };
+};
+
+export const deleteFacilityFail = (error) =>{
+    return{
+        type: actionTypes.DELETE_FACILITY_FAIL,
+        error: error.message
+    };
+};
+
+export const deleteFacility = (token, id) =>{
+    return dispatch=>{
+        dispatch(deleteFacilityStart());
+
+        const headers = {
+            Authorization: token
+        }
+
+        axios.delete('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/facility/' + id,
+                    {headers}
+                    )
+                .then(response=>{
+                    dispatch(getAllFacility(token));
+                    dispatch(deleteFacilitySuccess());
+                })
+                .catch(err=>{
+                    console.log(err.response);
+                    dispatch(deleteFacilityFail(err));
+                })
+    }
+}

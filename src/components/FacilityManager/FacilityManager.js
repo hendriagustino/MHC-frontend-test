@@ -8,6 +8,8 @@ import * as actions from './../../store/actions/index';
 import NavigationBar from './../UI/NavigationBar/NavigationBar';
 import Spinner from './../UI/Spinner/Spinner';
 
+import {confirm} from './../UI/Modal/Confirm/Confirm';
+
 class FacilityManager extends Component {
 
   componentDidMount(){
@@ -16,23 +18,15 @@ class FacilityManager extends Component {
 
   viewFacility = (id) =>{
     this.props.history.push('/facility/'+id);
-  }
-  
-  state = {
-    facility:
-      [
-        {
-          "facilityID": "FACI1",
-          "createdBy": "5d1d8b00bf0834170e88c7a6",
-          "updatedBy": null,
-          "_id": "5d1d8bc0bf0834170e88c7ab",
-          "facilityName": "FACILITY",
-          "createdAt": "2019-07-04T05:16:48.282Z",
-          "updatedAt": "2019-07-04T05:16:48.310Z",
-          "ID": 1
-        }
-      ]
-  }
+  };
+
+  deleteFacility = (id) =>{
+    confirm("Are you sure to delete?")
+    .then(
+      ()=>{this.props.deleteFacility(this.props.token, id)},
+      ()=>{}
+    );
+  };
 
   render(){ 
     
@@ -103,7 +97,8 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch =>{
   return {
-    getAllFacility: (token) => dispatch(actions.getAllFacility(token))
+    getAllFacility: (token) => dispatch(actions.getAllFacility(token)),
+    deleteFacility: (token, id) => dispatch(actions.deleteFacility(token, id))
   }
 }
 

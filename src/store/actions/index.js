@@ -13,7 +13,7 @@ export {
 
 export {
     getAllFacility,
-    getFacility, getFacilityErase
+    getFacility, getFacilityErase, deleteFacility
 } from './facilityManager';
 
 export {

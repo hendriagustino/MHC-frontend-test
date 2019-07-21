@@ -58,6 +58,28 @@ const getFacilityErase = (state, action) =>{
         ...state,
         facility: []
     }
+};
+
+const deleteFacilityStart = (state, action) =>{
+    return{
+        ...state,
+        loading: true
+    }
+};
+
+const deleteFacilitySuccess = (state, action)=>{
+    return{
+        ...state,
+        loading: false
+    }
+}
+
+const deleteFacilityFail = (state, action) =>{
+    return{
+        ...state,
+        loading: false,
+        error: action.error
+    }
 }
 
 const reducer = (state= initialState, action) =>{
@@ -79,9 +101,16 @@ const reducer = (state= initialState, action) =>{
         case actionTypes.GET_FACILITY_ERASE:
             return getFacilityErase(state, action);
 
+        case actionTypes.DELETE_FACILITY_START:
+            return deleteFacilityStart(state, action);
+        case actionTypes.DELETE_FACILITY_SUCCESS:
+            return deleteFacilitySuccess(state, action);
+        case actionTypes.DELETE_FACILITY_FAIL:
+            return deleteFacilityFail(state, action);
+
         default:
             return state;
     }
-}
+};
 
 export default reducer;

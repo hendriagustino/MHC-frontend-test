@@ -90,7 +90,6 @@ export const getPersonnel = (token, id) =>{
 };
 //////////////////////////////////////////////////////////
 
-//action creators for Personnel 
 export const deletePersonnelStart = (token) =>{
     return{
         type: actionTypes.DELETE_PERSONNEL_START

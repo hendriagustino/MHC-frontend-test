@@ -11,10 +11,6 @@ import {confirm} from './../UI/Modal/Confirm/Confirm';
 
 class PersonnelManager extends Component {
 
-  state = {
-    deleteModal : false
-  };
-
   componentDidMount(){
     this.props.getAllPersonnel(this.props.token);
   };
@@ -24,7 +20,7 @@ class PersonnelManager extends Component {
   };
 
   deletePersonnel = (id)=> {
-    confirm("Are you want to delete?")
+    confirm("Are you sure to delete?")
     .then(
       ()=>{this.props.deletePersonnel(this.props.token, id)},
       ()=>{}
