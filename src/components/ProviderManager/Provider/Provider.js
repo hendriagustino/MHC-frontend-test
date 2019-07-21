@@ -24,7 +24,7 @@ class Provider extends Component{
                 <div className="container mt-3" style={{maxWidth: '80vw'}}>
                     <div className="card text-center" style={{boxShadow: '4px 4px 8px lightgray'}}>
                         <div className="card-header">
-                            Personnel Information
+                            Provider Information
                             
                         </div>
                         
