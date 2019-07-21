@@ -1,3 +1,9 @@
+
+//this file contains all name for the Action.type
+// this is kind of a leaner way and also to prevent any bug to happen due to typo of
+// action.type name. Because since we use exported action.type from here, 
+// if we happen to mistype any, the webpack / browser will directly pop us a notification
+
 export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAIL = 'AUTH_FAIL';
@@ -7,6 +13,10 @@ export const GET_PERSONNEL_START =  'GET_PERSONNEL_START';
 export const GET_PERSONNEL_SUCCESS= 'GET_PERSONNEL_SUCCESS';
 export const GET_PERSONNEL_FAIL =   'GET_PERSONNEL_FAIL';
 export const GET_PERSONNEL_ERASE =   'GET_PERSONNEL_ERASE';
+
+export const DELETE_PERSONNEL_START =  'DELETE_PERSONNEL_START';
+export const DELETE_PERSONNEL_SUCCESS= 'DELETE_PERSONNEL_SUCCESS';
+export const DELETE_PERSONNEL_FAIL =   'DELETE_PERSONNEL_FAIL';
 
 export const GET_ALL_PERSONNEL_START =  'GET_ALL_PERSONNEL_START';
 export const GET_ALL_PERSONNEL_SUCCESS= 'GET_ALL_PERSONNEL_SUCCESS';

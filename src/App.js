@@ -23,20 +23,30 @@ import Provider from './components/ProviderManager/Provider/Provider';
 
 class App extends Component {
   
+  //this onAuthTokenCheck action is to check whenever any one of our page of the entire 
+  //React app re-render the will first check whether the token is still stored in
+  // localStorage, if the token is there we'll not log out the user because we dont want 
+  // to our user to re-login manually whenever they happen to reload the React application, because token 
+  //is stored in Redux state upon dispatching Login Succeed action. and in the end, redux state 
+  //is just javascript and they disappear everytime the application reloads
+
   componentDidMount(){
     this.props.onAuthTokenCheck();
   }
   
   render(){
     let routes = (
+
+      //here I implemented Route guards, for un-authenticated user we only render the Authentication page for them
+      // and any pages beyond that we shall be directed to the "Error 404" page
       <Switch>
         <Route exact path="/auth" component={Auth}/>
         <Route exact path="/" component={Auth}/>
         <Route path="*" component={NotFound}/>
-
       </Switch>
     );
 
+    // do checking of whether the token is available in the Redux Store
     if (this.props.token) {
       routes = (
       <Switch>

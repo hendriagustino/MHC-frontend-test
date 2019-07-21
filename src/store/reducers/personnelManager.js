@@ -60,6 +60,28 @@ const getPersonnelErase = (state, action) =>{
     }
 }
 
+const deletePersonnelStart = (state, action) =>{
+    return{
+        ...state,
+        loading: true
+    };
+};
+
+const deletePersonnelSuccess = (state, action) =>{
+    return{
+        ...state,
+        loading: false
+    }
+}
+
+const deletePersonnelFail = (state, action) =>{
+    return{
+        ...state,
+        loading: false,
+        error: action.error
+    }
+}
+
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case actionTypes.GET_ALL_PERSONNEL_START :
@@ -78,6 +100,13 @@ const reducer = (state = initialState, action) => {
             
         case actionTypes.GET_PERSONNEL_ERASE:
             return getPersonnelErase(state, action);
+
+        case actionTypes.DELETE_PERSONNEL_START:
+            return deletePersonnelStart(state, action);
+        case actionTypes.DELETE_PERSONNEL_SUCCESS:
+            return deletePersonnelSuccess(state, action);
+        case actionTypes.DELETE_PERSONNEL_FAIL:
+            return deletePersonnelFail(state, action);
 
         default:
             return state;

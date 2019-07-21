@@ -39,6 +39,8 @@ export const auth = (username, password) =>{
         
         axios.post('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/user/login', authData)
             .then(response=>{
+                //store token that we get back from response data body 
+                //afer successfully logged user in
                 localStorage.setItem('token',response.data.token);
                 dispatch(authSuccess(response.data.token));
             })
@@ -51,6 +53,8 @@ export const auth = (username, password) =>{
 
 export const authTokenCheck = () =>{
     return dispatch =>{
+        //check whether token is available in localStorage, if it is then we will automatically
+        //dispatch user login with the retrieved token
         const token = localStorage.getItem('token');
         if (!token){
             dispatch(authLogout());

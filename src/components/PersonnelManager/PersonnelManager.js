@@ -2,13 +2,18 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import { MDBDataTable, MDBBtn } from 'mdbreact';
+
 import classes from './PersonnelManager.module.css';
 import * as actions from './../../store/actions/index';
 import Spinner from './../UI/Spinner/Spinner';
-
 import NavigationBar from './../UI/NavigationBar/NavigationBar';
+import {confirm} from './../UI/Modal/Confirm/Confirm';
 
 class PersonnelManager extends Component {
+
+  state = {
+    deleteModal : false
+  };
 
   componentDidMount(){
     this.props.getAllPersonnel(this.props.token);
@@ -18,6 +23,14 @@ class PersonnelManager extends Component {
     this.props.history.push('/personnel/'+ id);
   };
 
+  deletePersonnel = (id)=> {
+    confirm("Are you want to delete?")
+    .then(
+      ()=>{this.props.deletePersonnel(this.props.token, id)},
+      ()=>{}
+    );
+  };
+  
   render(){
     
   const data = {
@@ -45,9 +58,7 @@ class PersonnelManager extends Component {
         action :
           <React.Fragment>
             <MDBBtn
-              style={{marginRight: '5px'}}
-              size="sm"
-              color="success"
+              style={{marginRight: '5px'}} size="sm" color="success"
               onClick={()=> this.viewPersonnel(personnel.ID)}
               >
               VIEW
@@ -82,7 +93,7 @@ class PersonnelManager extends Component {
               />
             )
         }
-        
+
       </div>
     </div>
   );
@@ -99,10 +110,9 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch =>{
   return {
-    getAllPersonnel : (token) => dispatch(actions.getAllPersonnel(token))
+    getAllPersonnel : (token) => dispatch(actions.getAllPersonnel(token)),
+    deletePersonnel : (token, id) => dispatch(actions.deletePersonnel(token, id))
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonnelManager);
-
-// export default withRouter( connect (mapStateToProps, mapDispatchToProps) (Dashboard));

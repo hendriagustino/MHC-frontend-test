@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 import * as actions from './../../../store/actions/index';
 
+//stateful component for Navigation Bar for user to navigate through pages
 class NavigationBar extends React.Component {
  
   state = {
@@ -60,13 +61,7 @@ class NavigationBar extends React.Component {
       </div>
     );
   }
-}
-
-// const mapStateToProps = state =>{
-//   return {
-//     isAuthenticated: state.auth.token !== null
-//   }
-// };
+};
 
 const mapDispatchToProps = dispatch =>{
   return {

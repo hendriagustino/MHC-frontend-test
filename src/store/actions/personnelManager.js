@@ -88,3 +88,46 @@ export const getPersonnel = (token, id) =>{
             })
     }
 };
+//////////////////////////////////////////////////////////
+
+//action creators for Personnel 
+export const deletePersonnelStart = (token) =>{
+    return{
+        type: actionTypes.DELETE_PERSONNEL_START
+    };
+};
+
+export const deletePersonnelSuccess = () =>{
+    return{
+        type: actionTypes.DELETE_PERSONNEL_SUCCESS
+    };
+};
+
+export const deletePersonnelFail = (error) =>{
+    return {
+        type: actionTypes.DELETE_PERSONNEL_FAIL,
+        error: error.message
+    };
+};
+
+export const deletePersonnel = (token, id) =>{
+    return dispatch => {
+        dispatch(deletePersonnelStart());
+
+        const headers = {
+            Authorization: token
+        };
+
+        axios.delete('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/personnel/' + id,
+                    {headers}
+                )
+            .then(response=>{
+                dispatch(getAllPersonnel(token));
+                dispatch(deletePersonnelSuccess());
+            })
+            .catch(err=>{
+                console.log(err.response);
+                dispatch(deletePersonnelFail(err));
+            })
+    }
+};
