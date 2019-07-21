@@ -5,6 +5,7 @@ import {MDBDataTable, MDBBtn} from 'mdbreact';
 import classes from './ProviderManager.module.css';
 import * as actions from './../../store/actions/index';
 import Spinner from './../UI/Spinner/Spinner';
+import {confirm} from './../UI/Modal/Confirm/Confirm';
 
 import NavigationBar from './../UI/NavigationBar/NavigationBar';
 
@@ -17,6 +18,14 @@ class ProviderManager extends Component {
   viewProvider = (id) =>{
     this.props.history.push('/provider/'+ id);
   }
+
+  deleteProvider = (id) =>{
+    confirm("Are you sure to delete?")
+    .then(
+      ()=>{this.props.deleteProvider(this.props.token, id)},
+      ()=>{}
+    );
+  };
 
   render(){ 
 
@@ -89,7 +98,8 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch =>{
   return {
-    getAllProvider : (token) => dispatch(actions.getAllProvider(token))
+    getAllProvider : (token) => dispatch(actions.getAllProvider(token)),
+    deleteProvider : (token, id) => dispatch(actions.deleteProvider(token, id))
   }
 }
 

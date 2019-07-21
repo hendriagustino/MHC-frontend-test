@@ -18,5 +18,5 @@ export {
 
 export {
     getAllProvider,
-    getProvider, getProviderErase
+    getProvider, getProviderErase, deleteProvider
 } from './providerManager';

@@ -29,6 +29,7 @@ const getAllProviderFail = (state, action) =>{
         error: action.error
     };
 };
+
 const getProviderStart = (state, action) =>{
     return{
         ...state,
@@ -59,6 +60,28 @@ const getProviderErase = (state, action) =>{
     }
 }
 
+const deleteProviderStart = (state, action )=>{
+    return{
+        ...state,
+        loading: true
+    };
+};
+
+const deleteProviderSuccess = (state, action )=>{
+    return{
+        ...state,
+        loading: false
+    };
+};
+
+const deleteProviderFail = (state, action) =>{
+    return{
+        ...state,
+        loading: false,
+        error: action.error
+    }
+}
+
 const reducer = (state= initialState, action) =>{
     switch(action.type){
         case actionTypes.GET_ALL_PROVIDER_START:
@@ -76,7 +99,14 @@ const reducer = (state= initialState, action) =>{
             return getProviderFail(state, action);
             
         case actionTypes.GET_PROVIDER_ERASE:
-            return getProviderErase(state, action);    
+            return getProviderErase(state, action); 
+
+        case actionTypes.DELETE_PROVIDER_START:
+            return deleteProviderStart(state, action);
+        case actionTypes.DELETE_PROVIDER_SUCCESS:
+            return deleteProviderSuccess(state, action);
+        case actionTypes.DELETE_PROVIDER_FAIL:
+            return deleteProviderFail(state, action);   
         
         default:
             return state;

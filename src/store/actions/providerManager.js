@@ -88,3 +88,46 @@ export const getProvider = (token, id) =>{
             })
     }
 };
+//////////////////////////////////////////////////////////
+
+export const deleteProviderStart = (token) =>{
+    return {
+        type: actionTypes.DELETE_PROVIDER_START
+    };
+};
+
+export const deleteProviderSuccess = () =>{
+    return{
+        type: actionTypes.DELETE_PROVIDER_SUCCESS
+    };
+};
+
+export const deleteProviderFail = (error) =>{
+    return{
+        type: actionTypes.DELETE_PROVIDER_FAIL,
+        error: error.message
+    };
+};
+
+export const deleteProvider = (token, id) =>{
+    return dispatch =>{
+        dispatch(deleteProviderStart());
+
+        const headers = {
+            Authorization: token
+        };
+
+        axios.delete('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/provider/'+ id,
+                    {headers}
+                    )
+            .then(response=>{
+                dispatch(getAllProvider(token));
+                dispatch(deleteProviderSuccess());
+            })
+            .catch(err=>{
+                console.log(err.response);
+                dispatch(deleteProviderFail(err));
+            })
+
+    }
+}
