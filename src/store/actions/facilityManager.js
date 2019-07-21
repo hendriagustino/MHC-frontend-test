@@ -1,12 +1,14 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
+//action creator for the starting of getAllFacility where we need to change the loading to true
 export const getAllFacilityStart = (token) =>{
     return{
         type: actionTypes.GET_ALL_FACILITY_START
     }
 }
 
+//action creator upon success of getAllFacility to store the data(s) of facility fetched
 export const getAllFacilitySuccess = (facility) =>{
     return{
         type: actionTypes.GET_ALL_FACILITY_SUCCESS,
@@ -14,6 +16,7 @@ export const getAllFacilitySuccess = (facility) =>{
     };
 };
 
+//action creator upon fail of facility data fetching from getAllFacility action
 export const getAllFacilityFail = (error) =>{
     return {
         type: actionTypes.GET_ALL_FACILITY_FAIL,
@@ -21,6 +24,7 @@ export const getAllFacilityFail = (error) =>{
     };
 };
 
+//handling asynchronous code of fetching facility data through the API
 export const getAllFacility = token =>{
     return dispatch => {
         dispatch(getAllFacilityStart());
@@ -122,6 +126,9 @@ export const deleteFacility = (token, id) =>{
                     {headers}
                     )
                 .then(response=>{
+                    //upon deleting item of facility, we need to dispatch getAllFacility() to "force" the 
+                    //component to re-render because if we don't, we / the user might need to have refresh manually
+                    //to the the data really gone/deleted. This is considered a bad User Experience 
                     dispatch(getAllFacility(token));
                     dispatch(deleteFacilitySuccess());
                 })

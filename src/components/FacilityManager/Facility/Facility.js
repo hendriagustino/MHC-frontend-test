@@ -7,16 +7,20 @@ import {Link} from 'react-router-dom';
 
 class Facility extends Component{
 
+    //get complete data/info about this one specific Facility based on given params id
     componentDidMount(){
         this.props.getFacility(this.props.token, this.props.match.params.id);
     }
 
+    //clean-up work of Facility array in Redux store when the user leave this 
+    // component/ page
     componentWillUnmount(){
         this.props.getFacilityErase();
     }
 
     render(){
 
+        //copy content of facility array in the Redux store to a local variable
         let facility = [...this.props.facility];
 
         return(
@@ -46,6 +50,7 @@ class Facility extends Component{
                                     </div>
 
                                     <div className="col-6 text-left">
+                                        {/* below i keep using the [0] index number of an array because i know the length of the data willnot exceed more than 1 */}
                                         <p><strong>{facility[0].facilityID}</strong></p>
                                         <p><strong>{facility[0].createdBy}</strong></p>
                                         

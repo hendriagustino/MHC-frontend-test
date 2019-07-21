@@ -29,6 +29,7 @@ export const getAllPersonnel = token =>{
             Authorization: token
         };
 
+        //fetching all data (getAll Personnel) from the API
         axios.get('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/personnel',
                     {headers}
                 )
@@ -75,7 +76,8 @@ export const getPersonnel = (token, id) =>{
         const headers = {
             Authorization: token
         };
-
+        
+        //fetching data for one specific Personnel object which the user clicked onto through the Personnel view table page
         axios.get('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/personnel/' + id,
                     {headers}
                 )
@@ -117,6 +119,7 @@ export const deletePersonnel = (token, id) =>{
             Authorization: token
         };
 
+        //sending API request to delete one specific Personnel object 
         axios.delete('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/personnel/' + id,
                     {headers}
                 )

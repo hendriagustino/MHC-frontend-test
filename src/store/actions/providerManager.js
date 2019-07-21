@@ -29,6 +29,7 @@ export const getAllProvider = token =>{
             Authorization: token
         };
 
+        //getAll data of the Provider
         axios.get('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/provider',
                     {headers}
         )
@@ -75,7 +76,7 @@ export const getProvider = (token, id) =>{
         const headers = {
             Authorization: token
         };
-
+        //get data only of one specific Provider
         axios.get('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/provider/' + id,
                     {headers}
                 )
@@ -116,7 +117,7 @@ export const deleteProvider = (token, id) =>{
         const headers = {
             Authorization: token
         };
-
+        //delete one specific Provider object from the store
         axios.delete('https://cors-anywhere.herokuapp.com/project-highway.herokuapp.com/provider/'+ id,
                     {headers}
                     )

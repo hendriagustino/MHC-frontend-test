@@ -59,7 +59,8 @@ class PersonnelManager extends Component {
   }
   
   render(){
-    
+  
+  //data mapping which this const is used for the MDBDataTable
   const data = {
     columns: [
       {label: 'First Name', field: 'firstname'},
@@ -107,6 +108,7 @@ class PersonnelManager extends Component {
       <h1>Personnel Manager</h1>
       <div className="container">
         
+        {/* modal for adding a new Personnel */}
         <Modal isOpen={this.state.modal} toggle={this.toggleAddForm} className={this.props.className}>
           <ModalHeader toggle={this.toggleAddForm}>Add New Personnel</ModalHeader>
           <ModalBody>

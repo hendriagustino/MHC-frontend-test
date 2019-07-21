@@ -5,19 +5,23 @@ import * as actions from './../../../store/actions/index';
 import Spinner from './../../UI/Spinner/Spinner';
 import { Link } from 'react-router-dom';
 
-
 class Personnel extends Component{
 
+    //do more complete data fetching of Personnel for a params id given
     componentDidMount(){
         this.props.getPersonnel(this.props.token, this.props.match.params.id);
     };
 
+    //do clean-up work for the personnel array in Redux Store whenever user
+    //leave this component/ page
     componentWillUnmount(){
         this.props.getPersonnelErase();
     };
 
     render(){
 
+        //copying everything inside personnel array of the Redux store to a 
+        //local variable
         let personnel = [...this.props.personnel];
 
         return(
@@ -57,6 +61,9 @@ class Personnel extends Component{
 
                                     </div>
                                     <div className="col-6 text-left">
+                                        
+                                        {/* below i used the array index number [0], because i know the
+                                        length of the data for personnel variable will always be only 1 */}
                                         <p><strong>{personnel[0].firstName}</strong></p>
                                         <p><strong>{personnel[0].lastName}</strong></p>
                                         <p><strong>{personnel[0].NRIC}</strong></p>

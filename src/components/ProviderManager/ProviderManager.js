@@ -11,14 +11,17 @@ import NavigationBar from './../UI/NavigationBar/NavigationBar';
 
 class ProviderManager extends Component {
   
+  //retrieve all data of Provider when component renders
   componentDidMount(){
     this.props.getAllProvider(this.props.token);
   }
 
+  //Direct user to a page to see more complete information of a Provider object
   viewProvider = (id) =>{
     this.props.history.push('/provider/'+ id);
   }
 
+  //delete confirmation modal that is toggled upon clicking on Delete Button on provider list
   deleteProvider = (id) =>{
     confirm("Are you sure to delete?")
     .then(

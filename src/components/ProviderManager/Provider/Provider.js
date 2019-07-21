@@ -7,16 +7,21 @@ import {Link} from 'react-router-dom';
 
 class Provider extends Component{
 
+    //retrieve data of one specific Provider from the API based on given id params
     componentDidMount(){
         this.props.getProvider(this.props.token, this.props.match.params.id);
     };
 
+    //whenever the user leaves this Provider page / component, we then remove or do
+    // a clean up of the array provider: [] in the Redux Store
     componentWillUnmount(){
         this.props.getProviderErase();
     }
 
     render(){
-
+        
+        //copying the whole data of a Provider object and then put it in a component local
+        // variable
         let provider = [...this.props.provider];
 
         return(
@@ -49,6 +54,10 @@ class Provider extends Component{
                                         
                                     </div>
                                     <div className="col-6 text-left">
+                                        
+                                        {/* below i keep using the array index number [0] because i know the
+                                        data that i get back from the API request will always be only 1 data.
+                                        */}
                                         <p><strong>{provider[0].clinicName}</strong></p>
                                         <p><strong>{provider[0].type}</strong></p>
                                         <p><strong>{provider[0].contact.telephone}</strong></p>

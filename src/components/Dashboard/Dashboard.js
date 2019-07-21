@@ -8,6 +8,9 @@ import { Card, CardTitle, CardText, CardDeck, CardBody } from 'reactstrap';
 
 class Dashboard extends Component {
 
+  //here I dispatch getAllProvider & getAllPersonnel every time this component renders
+  // because I want to present the amount of Providers, Personnels, and Personnel.type === 'DOCTOR'
+  // to the user
   componentDidMount(){
     this.props.getAllProvider(this.props.token);
     this.props.getAllPersonnel(this.props.token);
@@ -15,6 +18,8 @@ class Dashboard extends Component {
 
   render(){
 
+    //filtering out only data with the property 'type' === 'DOCTOR' and then storing it to the doctors constant
+    //all other non-DOCTOR personnel.type won't get into this const here
     const doctors = this.props.personnel.filter( personnel => {
       return personnel.type === 'DOCTOR'
       }
@@ -35,6 +40,7 @@ class Dashboard extends Component {
                   ?
                     <Spinner/>
                   :
+                    //here we directly count the length of provider(s) in the redux store after dispatching getAllProvider to count its length
                     <span className="display-1">{this.props.provider.length}</span>
                 }
               </CardText>
@@ -50,6 +56,7 @@ class Dashboard extends Component {
                   ?
                     <Spinner/>
                   :
+                    //here we directly count the length of personnel(s) in the redux store after dispatching getAllPersonnel
                     <span className="display-1">{this.props.personnel.length}</span>
                 }
               </CardText>
@@ -65,6 +72,8 @@ class Dashboard extends Component {
                   ?
                     <Spinner/>
                   :
+                    //here we basically still make use the result out of getAllPersonnel action"
+                    //which we then store it into the const doctors where we just do a length count to the const itself
                     <span className="display-1">{doctors.length}</span>
                 }
               </CardText>
