@@ -9,23 +9,54 @@ import Spinner from './../UI/Spinner/Spinner';
 import NavigationBar from './../UI/NavigationBar/NavigationBar';
 import {confirm} from './../UI/Modal/Confirm/Confirm';
 
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input } from 'reactstrap';
+
 class PersonnelManager extends Component {
+
+  state = {
+    modal: false,
+    firstName: '',
+    lastName: '',
+    type: '',
+    NRIC: '',
+    designation: '',
+    mobileNumber: '',
+    descriptionAndRemarks: '',
+    MCRNumber: '',
+    yearsOfExperience: '',
+    certificationName: '',
+    remarks: '',
+    defaultSpecialty: '',
+    subSpecialties: ''
+  };
 
   componentDidMount(){
     this.props.getAllPersonnel(this.props.token);
   };
 
-  viewPersonnel = (id) =>{
+  viewPersonnel = (id) => {
     this.props.history.push('/personnel/'+ id);
   };
 
-  deletePersonnel = (id)=> {
+  deletePersonnel = (id) => {
     confirm("Are you sure to delete?")
     .then(
       ()=>{this.props.deletePersonnel(this.props.token, id)},
       ()=>{}
     );
   };
+
+  toggleAddForm =()=> {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  };
+
+  onInputChangeHandler = (e) =>{
+    this.setState({
+        [e.target.name] : e.target.value
+      });
+  }
   
   render(){
     
@@ -76,17 +107,73 @@ class PersonnelManager extends Component {
       <h1>Personnel Manager</h1>
       <div className="container">
         
+        <Modal isOpen={this.state.modal} toggle={this.toggleAddForm} className={this.props.className}>
+          <ModalHeader toggle={this.toggleAddForm}>Add New Personnel</ModalHeader>
+          <ModalBody>
+
+              <Form>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="firstName" id="firstName" placeholder="First Name"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="lastName" id="lastName" placeholder="Last Name"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="type" id="type" placeholder="Type"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="NRIC" id="NRIC" placeholder="NRIC"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="designation" id="designation" placeholder="designation"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="number" onChange={this.onInputChangeHandler} name="mobileNumber" id="mobileNumber" placeholder="mobileNumber"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="descriptionAndRemarks" id="descriptionAndRemarks" placeholder="descriptionAndRemarks"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="number" onChange={this.onInputChangeHandler} name="MCRNumber" id="MCRNumber" placeholder="MCRNumber"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="number" onChange={this.onInputChangeHandler} name="yearsOfExperience" id="yearsOfExperience" placeholder="yearsOfExperience"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="certificationName" id="certificationName" placeholder="certificationName"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="remarks" id="remarks" placeholder="remarks"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="defaultSpecialty" id="defaultSpecialty" placeholder="defaultSpecialty"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="text" onChange={this.onInputChangeHandler} name="subSpecialties" id="subSpecialties" placeholder="subSpecialties"/>
+                </FormGroup>
+              </Form>
+
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Submit</Button>{' '}
+          </ModalFooter>
+        </Modal>
+        
         {
           this.props.loading ? 
             <Spinner/> 
           : 
             (
-              <MDBDataTable
-                striped
-                bordered
-                hover
-                data={data}
-              />
+              <React.Fragment>
+                <Button color="success" onClick={this.toggleAddForm}>Add Personnel</Button>
+
+                <MDBDataTable
+                  striped
+                  bordered
+                  hover
+                  data={data}
+                />
+              </React.Fragment>
             )
         }
 
