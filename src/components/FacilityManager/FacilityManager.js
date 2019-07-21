@@ -47,6 +47,7 @@ class FacilityManager extends Component {
 
   render(){ 
     
+    //data for MDBDataTable which is mapped from the Facility array in the Redux Store
     const data = {
       columns : [
         {label: 'ID', field: 'ID'},
@@ -85,6 +86,7 @@ class FacilityManager extends Component {
         <h1>Facility Manager</h1>
         <div className="container">
 
+          {/* modal for adding new Facility object */}
           <Modal isOpen={this.state.modal} toggle={this.toggleAddForm} className={this.props.className}>
           <ModalHeader toggle={this.toggleAddForm}>Add New Facility</ModalHeader>
           <ModalBody>
