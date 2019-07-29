@@ -42,7 +42,7 @@ Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and fol
 
 # Installation Instructions
 ## First when running the application, we will be directed to the login form / authentication page
-![login_form.png](https://github.com/hendriagustino/mhc-frontend-test/images/login_form.png)
+![login_form.png](images/login_form.png)
 
 ## Whenever we visit any links other than this login form and if we are still unauthenticated, we will be redirected to this "Eror 404 page"
 ![error404.png](https://bitbucket.org/repo/E6o9zK4/images/4061459960-error404.png)
