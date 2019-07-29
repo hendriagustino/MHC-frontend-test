@@ -45,45 +45,45 @@ Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and fol
 ![login_form.png](images/login_form.png)
 
 ## Whenever we visit any links other than this login form and if we are still unauthenticated, we will be redirected to this "Eror 404 page"
-![error404.png](https://bitbucket.org/repo/E6o9zK4/images/4061459960-error404.png)
+![error404.png](images/error404.png)
 
 ## Below is the Dashboard after logging in. Here we can see a series total number of Providers, Personnels, and Doctors
-![dashboard.png](https://bitbucket.org/repo/E6o9zK4/images/663660014-dashboard.png)
+![dashboard.png](images/dashboard.png)
 
 ## Personnel Manager page contains all the personnel(s) in the database, on this page we can Add Personnel, View Personnel and Delete Personnel
-![personnel_manager.png](https://bitbucket.org/repo/E6o9zK4/images/3926128836-personnel_manager.png)
+![personnel_manager.png](images/personnel_manager.png)
 
 ## Adding Personnel Form (not yet working)
-![add_personnel_form.png](https://bitbucket.org/repo/E6o9zK4/images/2483786525-add_personnel_form.png)
+![add_personnel_form.png](images/add_personnel_form.png)
 
 ## View Personnel Page
-![:personnel:1.png](https://bitbucket.org/repo/E6o9zK4/images/4222815693-:personnel:1.png)
+![:personnel:1.png](images/:personnel:1.png)
 
 ## Delete Personnel confirmation modal (clicking yes will then execute deletion of a personnel data)
-![delete_personnel.png](https://bitbucket.org/repo/E6o9zK4/images/3377187143-delete_personnel.png)
+![delete_personnel.png](images/delete_personnel.png)
 
 ## Facility Manager page contains all the facilities in the database, on this page we can Add Facility, View Facility and Delete Facility
-![facility_manager.png](https://bitbucket.org/repo/E6o9zK4/images/3546183199-facility_manager.png)
+![facility_manager.png](images/facility_manager.png)
 
 ## Adding Facility Form (not yet working)
-![add_facility.png](https://bitbucket.org/repo/E6o9zK4/images/1767570932-add_facility.png)
+![add_facility.png](images/add_facility.png)
 
 ## View Facility Page
-![:facility:1.png](https://bitbucket.org/repo/E6o9zK4/images/1098919975-:facility:1.png)
+![:facility:1.png](images/:facility:1.png)
 
 ## Delete Facility confirmation modal (clicking yes will then execute deletion of a facility data)
-![delete_facility.png](https://bitbucket.org/repo/E6o9zK4/images/1332684451-delete_facility.png)
+![delete_facility.png](images/delete_facility.png)
 
 ## Provider Manager page contains all the facilities in the database, on this page we can Add Provider, View Provider and Delete Provider
-![provider_manager.png](https://bitbucket.org/repo/E6o9zK4/images/1839215650-provider_manager.png)
+![provider_manager.png](images/provider_manager.png)
 
 ## Adding Provider Form (not yet working)
 
 ## View Provider Page
-![:provider:1.png](https://bitbucket.org/repo/E6o9zK4/images/1194875318-:provider:1.png)
+![:provider:1.png](images/:provider:1.png)
 
 ## Delete Provider confirmation modal (clicking yes will then execute deletion of a provider data)
-![delete_provider.png](https://bitbucket.org/repo/E6o9zK4/images/3428876578-delete_provider.png)
+![delete_provider.png](images/delete_provider.png)
 
 ## Logout button to finish user session
-![logout.png](https://bitbucket.org/repo/E6o9zK4/images/2690395297-logout.png)
+![logout.png](images/logout.png)
