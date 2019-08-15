@@ -10,37 +10,6 @@ This project is a coding test / developer test which I did for MHC. This is a fr
 - The admin can then view a list of Personnel in the Personnel Manager and delete / view more / create more. Same goes for all the other managers.
 
 # Installation Instructions
-## REQUIREMENTS
-
-For development, you will need to install `Node.js` on your environment.
-
-#### Node installation on OS X
-
-1. Open the Terminal App and type brew install node.
-2. Wait while Homebrew helps you download and install all the needed files for you to use.
-
-After installing, you can check whether Node.js has been installed by typing `node-v` in terminal. Also to see if NPM is installed already, by typing `npm -v`
-
-#### Node installation on Linux
-
-On terminal, type in : 
-`sudo apt-get install nodejs`
-
-#### Node installation on Windows 
-
-Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and follow all the steps to download.
-
-## INSTALL
-
-`$ git clone git@github.com:hendriagustino/mhc-frontend-test.git`,
-`$ cd mhc-frontend-test`,
-`$ npm install`
-
-# START 
-
-`$ npm start`
-
-# Installation Instructions
 ## First when running the application, we will be directed to the login form / authentication page
 ![login_form.png](images/login_form.png)
 
@@ -87,3 +56,34 @@ Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and fol
 
 ## Logout button to finish user session
 ![logout.png](images/logout.png)
+
+# Installation Instructions
+## REQUIREMENTS
+
+For development, you will need to install `Node.js` on your environment.
+
+#### Node installation on OS X
+
+1. Open the Terminal App and type brew install node.
+2. Wait while Homebrew helps you download and install all the needed files for you to use.
+
+After installing, you can check whether Node.js has been installed by typing `node-v` in terminal. Also to see if NPM is installed already, by typing `npm -v`
+
+#### Node installation on Linux
+
+On terminal, type in : 
+`sudo apt-get install nodejs`
+
+#### Node installation on Windows 
+
+Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and follow all the steps to download.
+
+## INSTALL
+
+`$ git clone git@github.com:hendriagustino/mhc-frontend-test.git`,
+`$ cd mhc-frontend-test`,
+`$ npm install`
+
+# START 
+
+`$ npm start`
