@@ -80,8 +80,8 @@ Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and fol
 
 ## INSTALL
 
-`$ git clone git@github.com:hendriagustino/mhc-frontend-test.git`,
-`$ cd mhc-frontend-test`,
+`$ git clone git@github.com:hendriagustino/mhc-frontend-test.git`<br>
+`$ cd mhc-frontend-test`<br>
 `$ npm install`
 
 # START 
