@@ -9,7 +9,7 @@ This project is a coding test / developer test which I did for MHC. This is a fr
 - Admins will then land on a dashboard of a few numbers, e.g. Total Number of Providers, Total Number of Personnel, Total Number of Doctors. On the left, there should be a navigation pane with these headers – Dashboard (with the numbers), Personnel Manager, Provider Manager, Facilities Manager. 
 - The admin can then view a list of Personnel in the Personnel Manager and delete / view more / create more. Same goes for all the other managers.
 
-# Installation Instructions
+# Snapshots of Web App 
 ## First when running the application, we will be directed to the login form / authentication page
 ![login_form.png](images/login_form.png)
 
